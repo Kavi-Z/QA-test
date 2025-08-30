@@ -33,4 +33,4 @@ jobs:
       - name: Run backend tests
         run: |
           cd quiz-backnd
-          npm test
+          npx jest --runInBand

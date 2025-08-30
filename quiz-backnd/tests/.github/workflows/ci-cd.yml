@@ -27,10 +27,10 @@ jobs:
 
       - name: Install backend dependencies
         run: |
-          cd quiz-update/quiz-backnd
+          cd quiz-backnd
           npm install
 
       - name: Run backend tests
         run: |
-          cd quiz-update/quiz-backnd
+          cd quiz-backnd
           npm test

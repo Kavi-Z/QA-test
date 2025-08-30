@@ -4,6 +4,10 @@ const mongoose = require('mongoose');
 
 let token;
 
+
+const User = require('../../models/User');
+const Quiz = require('../../models/Quiz');
+
 beforeAll(async () => {
   await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/quiz_test');
 
@@ -13,11 +17,18 @@ beforeAll(async () => {
     password: "teacher",  
     role: "teacher",
   };
- 
-  await request(app)
+
+  // Remove user if exists
+  await User.deleteOne({ email: testUser.email });
+
+  // Signup
+  const signupRes = await request(app)
     .post("/api/auth/signup")
-    .send(testUser)
-    .catch(() => {});  
+    .send(testUser);
+
+  if (signupRes.statusCode !== 201 && signupRes.statusCode !== 200) {
+    throw new Error(`Signup failed: ${JSON.stringify(signupRes.body)}`);
+  }
 
   // Login
   const res = await request(app)
@@ -33,7 +44,11 @@ beforeAll(async () => {
 
 
 
+
 afterAll(async () => {
+  // Clean up quizzes and user
+  await Quiz.deleteMany({});
+  await User.deleteOne({ email: "teacher@gmail.com" });
   await mongoose.connection.close();
 });
 

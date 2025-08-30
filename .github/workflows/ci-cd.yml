@@ -29,6 +29,10 @@ jobs:
         working-directory: quiz-backnd
         run: npm install
 
+      - name: Fix Jest permissions
+        working-directory: quiz-backnd
+        run: chmod +x ./node_modules/.bin/jest
+
       - name: Run backend tests
         working-directory: quiz-backnd
-        run: npm test
+        run: ./node_modules/.bin/jest --runInBand

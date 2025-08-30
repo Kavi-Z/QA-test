@@ -34,3 +34,8 @@ jobs:
         run: |
           cd quiz-backnd
           npm test
+      - name: Create .env file
+        run: |
+          echo "DB_URI=${{ secrets.DB_URI }}" >> quiz-backnd/.env
+          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> quiz-backnd/.env
+          

@@ -8,24 +8,29 @@ beforeAll(async () => {
   await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/quiz_test');
 
   const testUser = {
-    email: 'teacher@test.com',
-    password: 'teacher',
-    role: 'teacher',
+    name: "Teacher",   
+    email: "teacher@gmail.com",
+    password: "teacher",  
+    role: "teacher",
   };
  
-  await request(app).post('/api/auth/signup').send(testUser);
- 
-  const res = await request(app).post('/api/auth/login').send({
-    email: testUser.email,
-    password: testUser.password,
-  });
+  await request(app)
+    .post("/api/auth/signup")
+    .send(testUser)
+    .catch(() => {});  
 
-  console.log("Login response:", res.body); 
+  // Login
+  const res = await request(app)
+    .post("/api/auth/login")
+    .send({ email: testUser.email, password: testUser.password });
+
+  console.log("Login response:", res.body);  
 
   token = res.body.token;
 
-  if (!token) throw new Error('Login failed, token not received');
+  if (!token) throw new Error("Login failed, token not received");
 });
+
 
 
 afterAll(async () => {

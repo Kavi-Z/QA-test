@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 let token;
 
 
+
 const User = require('../../models/User');
 const Quiz = require('../../models/Quiz');
 
@@ -12,9 +13,10 @@ beforeAll(async () => {
   await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/quiz_test');
 
   const testUser = {
-    name: "Teacher",   
+    name: "teacher",   
     email: "teacher@gmail.com",
     password: "teacher",  
+    confirmPassword: "teacher",
     role: "teacher",
   };
 

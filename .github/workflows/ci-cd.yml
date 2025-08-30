@@ -31,4 +31,4 @@ jobs:
 
       - name: Run backend tests
         working-directory: quiz-backnd
-        run: npx jest --runInBand
+        run: npm test

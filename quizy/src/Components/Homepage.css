@@ -1,0 +1,348 @@
+ /* Add this to your existing keyframes if needed */
+@keyframes fadeInMain {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.homepage-container {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('../images/home.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  color: white;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    animation: fadeInMain 1.2s ease-out;
+}
+
+.content-inside-rect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 350px;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 600px, 200px;
+  opacity: 0.6;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.homepage-header {
+  position: absolute;
+  top: 150px;
+  left: 350px;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 80px;
+}
+
+.content_home {
+  position: absolute;
+  top: 320px;
+  left: 350px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.homepage-container .teacher-btn {
+  background-color: #E36403;
+  color: white;
+  width: 200px;
+  font-weight: 100;
+}
+
+.homepage-container .teacher-btn:hover {
+  background-color: #007bff;
+}
+
+.homepage-container .student-btn {
+  background-color: #007bff;
+  color: white;
+  font-weight: 100;
+}
+
+.homepage-container .student-btn:hover {
+  background-color: #E36403;
+}
+
+.homepage-container .homepage-header {
+  margin-bottom: 30px;
+}
+
+.homepage-container .homepage-header h1 {
+  font-size: 36px;
+  color: white;
+  text-align: center;
+}
+
+.homepage-container .homepage-main h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+
+.homepage-container .button-group {
+  display: flex;
+  gap: 20px;
+}
+
+.homepage-container .create-account-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.homepage-container .create-account-section p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #555;
+}
+
+.homepage-container .create-account-section .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.homepage-container .signup-link {
+  margin-top: 30px;
+  text-align: center;
+  color: #E36403;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.homepage-container .signup-link:hover {
+  color: #0056b3;
+} 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes buttonBounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+ 
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .homepage-header {
+    left: 50%;
+    font-size: 70px;
+  }
+  
+  .content_home {
+    left: 50%;
+  }
+  
+  .content-inside-rect {
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .homepage-container {
+    padding: 20px;
+    background-attachment: scroll;
+    min-height: 100vh;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .content-inside-rect {
+    position: static;
+    left: 0;
+    max-width: 100%;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .homepage-header {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    font-size: 48px;
+    margin-bottom: 20px;
+    animation: slideInLeft 1.2s ease-out;
+  }
+  
+  .content_home {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    animation: fadeInUp 1.5s ease-out;
+  }
+  
+  .homepage-container .homepage-header h1 {
+    font-size: 32px;
+  }
+  
+  .homepage-container .homepage-main h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+  
+  .homepage-container .button-group {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  .homepage-container .teacher-btn,
+  .homepage-container .student-btn {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: buttonBounce 0.5s ease;
+  }
+  
+  .homepage-container .teacher-btn:hover,
+  .homepage-container .student-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .homepage-container .create-account-section {
+    margin-top: 30px;
+  }
+  
+  .homepage-container .create-account-section p {
+    font-size: 14px;
+    color: #ddd;
+  }
+  
+  .homepage-container .signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .homepage-container {
+    padding: 15px;
+  }
+  
+  .homepage-header {
+    font-size: 36px;
+  }
+  
+  .homepage-container .homepage-header h1 {
+    font-size: 28px;
+  }
+  
+  .homepage-container .homepage-main h2 {
+    font-size: 20px;
+  }
+  
+  .homepage-container .teacher-btn,
+  .homepage-container .student-btn {
+    padding: 12px 16px;
+    font-size: 15px;
+  }
+  
+  .homepage-container .button-group {
+    max-width: 280px;
+  }
+}
+
+@media screen and (max-height: 500px) and (orientation: landscape) and (max-width: 768px) {
+  .homepage-container {
+    padding: 10px;
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+  
+  .homepage-header {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  
+  .homepage-container .homepage-header h1 {
+    font-size: 24px;
+  }
+  
+  .homepage-container .homepage-main h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .homepage-container .button-group {
+    flex-direction: row;
+    gap: 15px;
+    max-width: none;
+  }
+  
+  .homepage-container .teacher-btn,
+  .homepage-container .student-btn {
+    width: 150px;
+    padding: 10px 15px;
+  }
+  
+  .homepage-container .create-account-section {
+    margin-top: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

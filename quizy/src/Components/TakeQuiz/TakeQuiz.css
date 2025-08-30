@@ -1,0 +1,86 @@
+.TakeQuizContainer {
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px 20px;
+  background: url("../../images/Main2.png") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+}
+
+.TakeQuizContainer h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.TakeQuizContainer form {
+  background: rgba(0,0,0,0.6);
+  padding: 30px 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.TakeQuizContainer h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.TakeQuizContainer label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.TakeQuizContainer input[type="radio"] {
+  margin-right: 10px;
+  accent-color: #4caf50;
+}
+
+.TakeQuizContainer button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  align-self: center;
+  transition: background 0.3s ease;
+}
+
+.TakeQuizContainer button:hover {
+  background-color: #45a049;
+}
+
+.TakeQuizContainer p {
+  font-size: 18px;
+  text-align: center;
+  color: #ffd700;
+}
+
+@media screen and (max-width: 768px) {
+  .TakeQuizContainer form {
+    width: 95%;
+  }
+  .TakeQuizContainer h2 {
+    font-size: 26px;
+  }
+  .TakeQuizContainer h4 {
+    font-size: 16px;
+  }
+  .TakeQuizContainer p {
+    font-size: 16px;
+  }
+}

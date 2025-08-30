@@ -1,0 +1,36 @@
+name: Quiz Backend CI/CD
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      mongo:
+        image: mongo:6.0
+        ports:
+          - 27017:27017
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install backend dependencies
+        run: |
+          cd quiz_backup/quiz-backend
+          npm install
+
+      - name: Run backend tests
+        run: |
+          cd quiz_backup/quiz-backend
+          npm test

@@ -1,0 +1,193 @@
+/* Main container */
+.StudentDashboardContainer {
+  font-family: Arial, sans-serif;
+  background-color: #e8f0fe;
+  background-image: url('../../images/Landing_Page.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 50px 20px 20px 20px;
+  position: relative;
+  color: white;
+}
+
+/* Back arrow */
+.back-arrow {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.back-arrow::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-top: 3px solid white;
+  border-left: 3px solid white;
+  transform: rotate(-45deg);
+  transition: all 0.3s ease;
+}
+
+.back-arrow:hover {
+  background: rgba(255, 215, 0, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.back-arrow:hover::before {
+  border-color: #ffd700;
+  transform: rotate(-45deg) scale(1.2);
+}
+
+/* Heading */
+.StudentDashboardContainer h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 32px;
+  font-weight: 600;
+  animation: slideInLeft 1s ease-out;
+}
+
+/* Quiz list */
+.quiz-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual quiz card */
+.quiz-card {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(15px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px 20px;
+  min-width: 250px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+}
+
+/* Buttons inside quiz cards */
+.quiz-card button {
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+.quiz-card button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.quiz-card button:hover::before {
+  left: 100%;
+}
+
+.quiz-card button:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+}
+
+.quiz-card button:active {
+  transform: translateY(-1px);
+}
+
+/* Score text */
+.quiz-card span {
+  font-weight: 500;
+  font-size: 14px;
+  color: #ffd700;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .quiz-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .quiz-card {
+    width: 90%;
+    max-width: none;
+  }
+
+  .StudentDashboardContainer h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .StudentDashboardContainer {
+    padding: 20px 10px 10px 10px;
+  }
+
+  .quiz-card {
+    padding: 20px 15px;
+  }
+
+  .quiz-card button {
+    width: 100%;
+  }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,630 @@
+.DashboardContainer {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: url("../../images/Main2.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: fadeInMain 1.2s ease-out;
+}
+
+.DashboardContainer .dashboard {
+  width: 90%;
+  max-width: 1000px;
+  background: transparent;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.DashboardContainer .dashboard h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: white;
+  text-align: center;
+}
+
+.DashboardContainer .dashboard h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+
+.DashboardContainer .dashboard button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 14px;
+}
+
+.DashboardContainer .dashboard button:hover {
+  opacity: 0.85;
+}
+
+.DashboardContainer .dashboard button.cancel {
+  background-color: #777;
+}
+
+.DashboardContainer .dashboard button.delete {
+  background-color: #e53935;
+}
+
+.DashboardContainer .dashboard button.edit {
+  background-color: #4caf50;
+}
+
+.DashboardContainer .dashboard button.leaderboard {
+  background-color: #2196f3;
+}
+
+.DashboardContainer .quiz-form {
+  margin-bottom: 20px;
+}
+
+.DashboardContainer .quiz-form input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  color: white;
+  border-radius: 6px;
+  width: calc(50% - 12px);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.DashboardContainer .quiz-form input.full {
+  width: 100%;
+}
+
+.DashboardContainer .quiz-form .question-box {
+  border: 1px solid #ddd;
+  color: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.DashboardContainer .quiz-form .remove-question {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.DashboardContainer .quiz-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  position: relative;
+  transition: box-shadow 0.2s ease;
+}
+
+.DashboardContainer .quiz-card:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.DashboardContainer .quiz-card h3 {
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.DashboardContainer .quiz-card p {
+  color: white;
+  font-size: 14px;
+}
+
+.DashboardContainer .quiz-card .quiz-actions {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.DashboardContainer .quiz-card ul {
+  margin: 5px 0 10px 20px;
+  padding: 0;
+}
+
+.DashboardContainer .quiz-card li {
+  font-size: 14px;
+  color: white;
+}
+
+.DashboardContainer .quiz-card .correct-answer {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes buttonPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.DashboardContainer .dashboard button {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.DashboardContainer .dashboard button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.DashboardContainer .dashboard button:hover::before {
+  left: 100%;
+}
+
+.DashboardContainer .dashboard button:hover {
+  transform: translateY(-2px);
+  animation: buttonPulse 0.6s ease infinite;
+}
+
+.DashboardContainer .dashboard button.cancel {
+  background: linear-gradient(135deg, #777, #666);
+  box-shadow: 0 2px 8px rgba(119, 119, 119, 0.3);
+}
+
+.DashboardContainer .dashboard button.delete {
+  background: linear-gradient(135deg, #e53935, #d32f2f);
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.3);
+}
+
+.DashboardContainer .dashboard button.edit {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.DashboardContainer .dashboard button.leaderboard {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+.DashboardContainer .quiz-card {
+  animation: fadeInUp 0.6s ease-out;
+  transition: all 0.3s ease;
+}
+
+.DashboardContainer .quiz-card:hover {
+  animation: cardFloat 2s ease-in-out infinite;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .DashboardContainer .dashboard {
+    width: 95%;
+    padding: 25px;
+  }
+  
+  .DashboardContainer .quiz-form input {
+    width: calc(100% - 16px);
+    margin-bottom: 12px;
+  }
+  
+  .DashboardContainer .quiz-card .quiz-actions {
+    flex-direction: column;
+    gap: 3px;
+    min-width: 80px;
+  }
+  
+  .DashboardContainer .quiz-card .quiz-actions button {
+    font-size: 12px;
+    padding: 6px 10px;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .DashboardContainer {
+    background-attachment: scroll;
+    align-items: flex-start;
+    padding: 20px 0;
+    min-height: 100vh;
+  }
+  
+  .DashboardContainer .dashboard {
+    width: 95%;
+    max-width: none;
+    padding: 20px 15px;
+    margin: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: scaleIn 0.8s ease-out;
+  }
+  
+  .DashboardContainer .dashboard h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    animation: slideInLeft 1s ease-out;
+  }
+  
+  .DashboardContainer .dashboard h2 {
+    font-size: 18px;
+    margin-bottom: 25px;
+    animation: slideInLeft 1.2s ease-out;
+  }
+  
+  .DashboardContainer .dashboard button {
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin: 5px;
+    min-width: 120px;
+    font-weight: 500;
+  }
+  
+  .DashboardContainer .quiz-form {
+    margin-bottom: 30px;
+    animation: fadeInUp 1.4s ease-out;
+  }
+  
+  .DashboardContainer .quiz-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .DashboardContainer .quiz-form input:focus {
+    border-color: #4caf50;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+  }
+  
+  .DashboardContainer .quiz-form input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .DashboardContainer .quiz-form .question-box {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .DashboardContainer .quiz-form .remove-question {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #e53935, #d32f2f);
+  }
+  
+  .DashboardContainer .quiz-card {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    animation: fadeInUp 0.8s ease-out;
+    position: relative;
+  }
+  
+  .DashboardContainer .quiz-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    padding-right: 10px;
+  
+    position: relative;
+    z-index: 1;
+  }
+  
+  .DashboardContainer .quiz-card p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+   
+    position: relative;
+    z-index: 1;
+  }
+  
+  .DashboardContainer .quiz-card .quiz-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    
+    z-index: 2;
+     
+    max-width: 60%;
+  }
+  
+  .DashboardContainer .quiz-card .quiz-actions button {
+    padding: 6px 10px;
+    font-size: 12px;
+    margin: 2px;
+    white-space: nowrap;
+    font-weight: 500;
+    min-width: auto;
+    flex: none;
+  }
+  
+  .DashboardContainer .quiz-card ul {
+    margin: 15px 0;
+    padding-left: 20px;
+ 
+    position: relative;
+    z-index: 1;
+  }
+  
+  .DashboardContainer .quiz-card li {
+    font-size: 15px;
+    margin-bottom: 5px;
+    line-height: 1.4;
+  }
+}
+@media only screen and (max-width: 768px) {  /* mobile breakpoint */
+  
+  @keyframes moveRight { 
+    from {
+      transform: translateX(10px) translateY(2px);
+    }
+    to {
+      transform: translateX(15px) translateY(-8px);
+    }
+  }
+
+  .btns {
+    display: flex;
+    flex-direction: column;  
+    gap: 0px;            
+    animation: moveRight 1s ease-in-out forwards;
+  }
+
+}
+
+
+@media screen and (max-width: 480px) {
+  .DashboardContainer {
+    padding: 10px 0;
+  }
+  
+  .DashboardContainer .dashboard {
+    width: 98%;
+    padding: 15px 10px;
+    margin: 5px;
+  }
+  
+  .DashboardContainer .dashboard h1 {
+    font-size: 22px;
+  }
+  
+  .DashboardContainer .dashboard h2 {
+    font-size: 16px;
+  }
+  
+  .DashboardContainer .dashboard button {
+    margin: 5px 10px;
+
+    padding: 10px 15px;
+    font-size: 14px;
+    min-width: 100px;
+  }
+
+  
+  .DashboardContainer .quiz-form input {
+    padding: 10px;
+    font-size: 15px;
+  }
+  
+  .DashboardContainer .quiz-form .question-box {
+    padding: 15px;
+  }
+  
+  .DashboardContainer .quiz-card {
+    padding: 15px;
+  }
+  
+  .DashboardContainer .quiz-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+ 
+    padding-right: 5px;
+  }
+  
+  .DashboardContainer .quiz-card p {
+    font-size: 14px;
+  }
+  
+  .DashboardContainer .quiz-card .quiz-actions {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    flex-direction: row;
+    gap: 4px;
+    max-width: 70%;
+    padding: 6px;
+  }
+  
+  .DashboardContainer .quiz-card .quiz-actions button {
+    padding: 5px 8px;
+    font-size: 11px;
+    margin: 1px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .DashboardContainer .quiz-card {
+    padding: 10px;
+  }
+  
+  .DashboardContainer .quiz-card .quiz-actions {
+    top: 5px;
+    right: 5px;
+    padding: 5px;
+    max-width: 75%;
+  }
+  
+  .DashboardContainer .quiz-card .quiz-actions button {
+    font-size: 10px;
+    padding: 4px 6px;
+    margin: 1px;
+  }
+}
+
+@media screen and (max-height: 500px) and (orientation: landscape) and (max-width: 768px) {
+  .DashboardContainer {
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+  
+  .DashboardContainer .dashboard {
+    margin-top: 10px;
+    padding: 15px;
+  }
+  
+  .DashboardContainer .dashboard h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .DashboardContainer .dashboard h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .DashboardContainer .quiz-form .question-box {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .DashboardContainer .quiz-card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .DashboardContainer .quiz-card .quiz-actions {
+    flex-direction: row;
+    gap: 5px;
+    top: 8px;
+    right: 8px;
+    max-width: 50%;
+  }
+  
+  .DashboardContainer .quiz-card .quiz-actions button {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+  
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .DashboardContainer .quiz-card:hover {
+    animation: none;
+  }
+  
+  .DashboardContainer .dashboard button:hover {
+    animation: none;
+  }
+}

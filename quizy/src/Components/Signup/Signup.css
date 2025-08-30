@@ -1,0 +1,147 @@
+.Wrapper_signup1 {
+  background-image: url("../../images/Main3.png");
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInMain 1.2s ease-out;
+}
+ 
+.signup-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  animation: slideInDown 1s ease-out;
+}
+ 
+.signup-container h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+  color: #fff;
+  animation: fadeInUp 1.2s ease-out;
+}
+ 
+.button-group {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.button-group button {
+  flex: 1;
+  padding: 15px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+ 
+.teacher-btn {
+  background: linear-gradient(135deg, #E36403, #b94c02);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.teacher-btn:hover {
+  background: linear-gradient(135deg, #ff7e29, #c35402);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  animation: buttonPulse 0.3s ease forwards;
+}
+ 
+.student-btn {
+  background: linear-gradient(135deg, #2196f3, #1565c0);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.student-btn:hover {
+  background: linear-gradient(135deg, #42a5f5, #1e88e5);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  animation: buttonPulse 0.3s ease forwards;
+}
+ 
+@keyframes fadeInMain {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes buttonPulse {
+  0% { transform: scale(1); box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+  50% { transform: scale(1.05); box-shadow: 0 4px 12px rgba(0,0,0,0.35); }
+  100% { transform: scale(1); box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+}
+ 
+@media screen and (max-width: 600px) {
+  .signup-container {
+    width: 90%;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  .signup-container h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .button-group button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+ 
+@media (prefers-contrast: high) {
+  .teacher-btn,
+  .student-btn {
+    border: 2px solid white;
+  }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

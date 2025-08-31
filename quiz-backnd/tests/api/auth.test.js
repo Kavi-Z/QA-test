@@ -3,19 +3,30 @@ const app = require('../../index');
 
 describe('Auth API - Teacher', () => {
   const testUser = {
+    username: 'teacher',         
     email: 'teacher@gmail.com',
     password: 'teacher',
     role: 'teacher'
   };
 
-  beforeAll(async () => {
-    await request(app).post('/api/auth/signup').send(testUser);
+  beforeAll(async () => { 
+    const signupRes = await request(app)
+      .post('/api/auth/signup')
+      .send(testUser);
+    
+    if (signupRes.statusCode !== 201 && signupRes.statusCode !== 200) {
+      console.log('Signup failed:', signupRes.body);
+      throw new Error(`Signup failed: ${JSON.stringify(signupRes.body)}`);
+    }
   });
 
   it('should login with valid credentials', async () => {
     const res = await request(app)
       .post('/api/auth/login')
-      .send(testUser);
+      .send({
+        email: testUser.email,     
+        password: testUser.password
+      });
 
     expect(res.statusCode).toBe(200);
     expect(res.body).toHaveProperty('token');
@@ -24,7 +35,10 @@ describe('Auth API - Teacher', () => {
   it('should fail login with invalid password', async () => {
     const res = await request(app)
       .post('/api/auth/login')
-      .send({ ...testUser, password: 'wrongpass' });
+      .send({ 
+        email: testUser.email,
+        password: 'wrongpass' 
+      });
 
     expect(res.statusCode).toBe(401);
     expect(res.body).toHaveProperty('message', 'Invalid credentials.');

@@ -5,10 +5,10 @@ const User = require('../../models/User');
 
 describe('Auth API - Teacher', () => {
   const testUser = {
-    fullName: 'teacher',    
-    email: 'teacher@gmail.com',
-    password: 'teacher',
-    role: 'teacher'
+    fullName: 'teacher',          
+    email: 'teacher@gmail.com',       
+    password: 'teacher',               
+    role: 'teacher'                   
   };
 
   beforeAll(async () => {
@@ -26,14 +26,15 @@ describe('Auth API - Teacher', () => {
 
   afterAll(async () => {
     await User.deleteOne({ email: testUser.email });
+    await mongoose.connection.close();
   });
 
   it('should login with valid credentials', async () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({
-        email: testUser.email,
-        password: 'teacher',
+        email: testUser.email,        
+        password: testUser.password,   
         role: testUser.role           
       });
 
@@ -45,9 +46,9 @@ describe('Auth API - Teacher', () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({ 
-        email: testUser.email, 
-        password: 'teacher',
-        role: testUser.role           
+        email: testUser.email,        
+        password: 'wrongpassword',    
+        role: testUser.role          
       });
 
     expect(res.statusCode).toBe(401);

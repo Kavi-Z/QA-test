@@ -13,17 +13,15 @@ beforeAll(async () => {
   await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/quiz_test');
 
   const testUser = {
-    username: "teacher",   
+    fullName: "teacher",   
     email: "teacher@gmail.com",
     password: "teacher",  
     confirmPassword: "teacher",
     role: "teacher",
   };
-
-  // Remove user if exists
+ 
   await User.deleteOne({ email: testUser.email });
-
-  // Signup
+ 
   const signupRes = await request(app)
     .post("/api/auth/signup")
     .send(testUser);
@@ -31,8 +29,7 @@ beforeAll(async () => {
   if (signupRes.statusCode !== 201 && signupRes.statusCode !== 200) {
     throw new Error(`Signup failed: ${JSON.stringify(signupRes.body)}`);
   }
-
-  // Login
+ 
   const res = await request(app)
     .post("/api/auth/login")
     .send({ email: testUser.email, password: testUser.password });
@@ -48,7 +45,7 @@ beforeAll(async () => {
 
 
 afterAll(async () => {
-  // Clean up quizzes and user
+ 
   await Quiz.deleteMany({});
   await User.deleteOne({ email: "teacher@gmail.com" });
   await mongoose.connection.close();

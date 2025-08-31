@@ -3,18 +3,18 @@ const app = require('../../index');
 
 describe('Auth API - Teacher', () => {
   const testUser = {
-    username: 'teacher',         
+    fullName: 'teacher',
     email: 'teacher@gmail.com',
     password: 'teacher',
     role: 'teacher'
   };
 
-  beforeAll(async () => { 
+  beforeAll(async () => {
     const signupRes = await request(app)
       .post('/api/auth/signup')
       .send(testUser);
     
-    if (signupRes.statusCode !== 201 && signupRes.statusCode !== 200) {
+    if (signupRes.statusCode !== 201) {
       console.log('Signup failed:', signupRes.body);
       throw new Error(`Signup failed: ${JSON.stringify(signupRes.body)}`);
     }
@@ -24,7 +24,7 @@ describe('Auth API - Teacher', () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({
-        email: testUser.email,     
+        email: testUser.email,
         password: testUser.password
       });
 
@@ -36,7 +36,7 @@ describe('Auth API - Teacher', () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({ 
-        email: testUser.email,
+        email: testUser.email, 
         password: 'wrongpass' 
       });
 

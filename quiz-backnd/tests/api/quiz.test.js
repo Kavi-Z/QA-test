@@ -23,7 +23,7 @@ describe('Quiz API (TDD)', () => {
       .post("/api/auth/login")
       .send({
         email: testUser.email,
-        password: testUser.password,
+        password: "teacher",
         role: testUser.role
       });
       

@@ -1,15 +1,19 @@
 const request = require('supertest');
 const app = require('../../index');
+const mongoose = require('mongoose');
+const User = require('../../models/User');
 
 describe('Auth API - Teacher', () => {
   const testUser = {
-    fullName: 'teacher',
+    fullName: 'teacher',    
     email: 'teacher@gmail.com',
     password: 'teacher',
     role: 'teacher'
   };
 
   beforeAll(async () => {
+    await User.deleteOne({ email: testUser.email });
+    
     const signupRes = await request(app)
       .post('/api/auth/signup')
       .send(testUser);
@@ -20,12 +24,17 @@ describe('Auth API - Teacher', () => {
     }
   });
 
+  afterAll(async () => {
+    await User.deleteOne({ email: testUser.email });
+  });
+
   it('should login with valid credentials', async () => {
     const res = await request(app)
       .post('/api/auth/login')
       .send({
         email: testUser.email,
-        password: testUser.password
+        password: testUser.password,
+        role: testUser.role           
       });
 
     expect(res.statusCode).toBe(200);
@@ -37,7 +46,8 @@ describe('Auth API - Teacher', () => {
       .post('/api/auth/login')
       .send({ 
         email: testUser.email, 
-        password: 'wrongpass' 
+        password: 'teacher',
+        role: testUser.role           
       });
 
     expect(res.statusCode).toBe(401);
